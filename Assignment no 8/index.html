@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment 7 | CSS Layouts & Animations</title>
+
+  <style>
+    /* ---------------- RESET ---------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f2f4f8;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* ---------------- HEADER ---------------- */
+    header {
+      height: 80px;
+      background: #1f2937;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    header h1 {
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+
+    /* ---------------- MAIN CONTENT ---------------- */
+    main {
+      height: calc(100vh - 80px); /* 100vh - header height */
+      overflow-y: auto;
+      padding: 30px;
+    }
+
+    section {
+      background: #ffffff;
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    section h2 {
+      margin-bottom: 10px;
+      color: #1f2937;
+    }
+
+    section p {
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+
+    /* ---------------- FLEX LAYOUT ---------------- */
+    .flex-layout {
+      display: flex;
+      gap: 20px;
+    }
+
+    .flex-card {
+      flex: 1;
+      background: #10b981;
+      color: white;
+      padding: 20px;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* ---------------- GRID LAYOUT ---------------- */
+    .grid-layout {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-card {
+      background: #3b82f6;
+      color: white;
+      padding: 20px;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* ---------------- ANIMATIONS ---------------- */
+    @keyframes rotateAnimation {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes scaleAnimation {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.3);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .animation-container {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .rotate-box {
+      width: 100px;
+      height: 100px;
+      background: #ef4444;
+      animation: rotateAnimation 3s linear infinite;
+    }
+
+    .scale-box {
+      width: 100px;
+      height: 100px;
+      background: #f59e0b;
+      animation: scaleAnimation 2s ease-in-out infinite;
+    }
+
+    /* ---------------- MEDIA QUERIES ---------------- */
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      main {
+        padding: 15px;
+      }
+
+      .flex-layout {
+        flex-direction: column;
+      }
+
+      .grid-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Tablet */
+    @media (min-width: 601px) and (max-width: 900px) {
+      .grid-layout {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Desktop */
+    @media (min-width: 901px) {
+      body {
+        background-color: #e5e7eb;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Assignment 7 – CSS Layouts & Responsive Design</h1>
+  </header>
+
+  <main>
+
+    <!-- CALC SECTION -->
+    <section>
+      <h2>1. calc() Function</h2>
+      <p>
+        The <strong>calc()</strong> function allows dynamic calculation of CSS values.
+        This page uses <strong>height: calc(100vh - 80px)</strong> to adjust content height
+        according to the header.
+      </p>
+    </section>
+
+    <!-- FLEX SECTION -->
+    <section>
+      <h2>2. Flexbox Layout</h2>
+      <p>
+        Flexbox is used for one-dimensional layouts. Below is a flex layout example.
+      </p>
+      <div class="flex-layout">
+        <div class="flex-card">Flex Item 1</div>
+        <div class="flex-card">Flex Item 2</div>
+        <div class="flex-card">Flex Item 3</div>
+      </div>
+    </section>
+
+    <!-- GRID SECTION -->
+    <section>
+      <h2>3. Grid Layout</h2>
+      <p>
+        CSS Grid is used for two-dimensional layouts with rows and columns.
+      </p>
+      <div class="grid-layout">
+        <div class="grid-card">Grid Item 1</div>
+        <div class="grid-card">Grid Item 2</div>
+        <div class="grid-card">Grid Item 3</div>
+      </div>
+    </section>
+
+    <!-- ANIMATION SECTION -->
+    <section>
+      <h2>4. CSS Animations & Keyframes</h2>
+      <p>
+        Below examples demonstrate rotate and scale animations using
+        <strong>@keyframes</strong>.
+      </p>
+      <div class="animation-container">
+        <div class="rotate-box"></div>
+        <div class="scale-box"></div>
+      </div>
+    </section>
+
+    <!-- MEDIA QUERY SECTION -->
+    <section>
+      <h2>5. Media Queries</h2>
+      <p>
+        Media queries make this page responsive for mobile, tablet, and desktop devices.
+        Resize the browser window to see the effect.
+      </p>
+    </section>
+
+  </main>
+
+</body>
+</html>
